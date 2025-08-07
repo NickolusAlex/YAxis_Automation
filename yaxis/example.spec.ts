@@ -1,5 +1,7 @@
 import { test, expect, chromium, Locator, Page } from '@playwright/test';
 import { exit } from 'node:process';
+// test-setup.ts or before your Playwright test
+require('dotenv').config();
 
 // example.spec.ts
 const username = process.env.AUTH_USERNAME;
