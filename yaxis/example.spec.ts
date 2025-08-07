@@ -46,10 +46,10 @@ test('Open Y-axis for job apply', async ({ page }) => {
 
   await page.locator('//input[@placeholder="Email" and @name="user[email]"]').waitFor({ state: "visible" });
   const email_loc = await page.locator('//input[@placeholder="Email" and @name="user[email]"]')
-  await email_loc.fill("vnithyanandhan55@gmail.com")
+  await email_loc.fill("EMAIL")
 
   const pass_loc = await page.locator('//input[@placeholder="Password" and @name="user[password]"]')
-  await pass_loc.fill("Nick@lex55")
+  await pass_loc.fill("PASSWORD")
 
   const login_btn_element = await page.locator("//input[@value='Login' and @name='commit']");
   await login_btn_element.click()
