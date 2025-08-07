@@ -1,6 +1,10 @@
 import { test, expect, chromium, Locator, Page } from '@playwright/test';
 import { exit } from 'node:process';
 
+// example.spec.ts
+const username = process.env.AUTH_USERNAME;
+const password = process.env.AUTH_PASSWORD;
+
 test('Open Y-axis for job apply', async ({ page }) => {
   let count = 0;
   // <select id="search_where_q" name="search[where_q]" class="country-selector ui-autocomplete-input" onchange="showFlag()" autocomplete="off" data-gtm-form-interact-field-id="0">
@@ -46,10 +50,10 @@ test('Open Y-axis for job apply', async ({ page }) => {
 
   await page.locator('//input[@placeholder="Email" and @name="user[email]"]').waitFor({ state: "visible" });
   const email_loc = await page.locator('//input[@placeholder="Email" and @name="user[email]"]')
-  await email_loc.fill("EMAIL")
+  await email_loc.fill(username)
 
   const pass_loc = await page.locator('//input[@placeholder="Password" and @name="user[password]"]')
-  await pass_loc.fill("PASSWORD")
+  await pass_loc.fill(password)
 
   const login_btn_element = await page.locator("//input[@value='Login' and @name='commit']");
   await login_btn_element.click()
