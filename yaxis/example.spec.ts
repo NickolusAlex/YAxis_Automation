@@ -1,13 +1,33 @@
 import { test, expect, chromium, Locator, Page } from '@playwright/test';
 import { exit } from 'node:process';
-// test-setup.ts or before your Playwright test
-// require('dotenv').config();
 
-// example.spec.ts
+require('dotenv').config();
+
+// Fetching data from Git Secrets
 const username = process.env.AUTH_USERNAME;
 const password = process.env.AUTH_PASSWORD;
 
-test('Open Y-axis for job apply', async ({ page }) => {
+  const datafor = {
+    // Job title
+    job: "software engineer",
+    
+    
+    /* JOB Appling Country */
+    // country: "Canada",
+    // country: "Hong Kong",
+    // country: "New Zealand",
+    // country: "Ireland",
+    // country: "Australia",
+    // country: "USA",
+    // country: "Singapore",
+    // country: "Denmark",
+    // country: "Germany",
+    // country: "United Kingdom",
+  }
+
+
+
+test('Open Y-axis and apply for jobs', async ({ page }) => {
   let count = 0;
   // <select id="search_where_q" name="search[where_q]" class="country-selector ui-autocomplete-input" onchange="showFlag()" autocomplete="off" data-gtm-form-interact-field-id="0">
   //   <option value="">Select Country</option>
@@ -26,19 +46,7 @@ test('Open Y-axis for job apply', async ({ page }) => {
   //   <!-- Add more country options here -->
   // </select>
 
-  const datafor = {
-    job: "software engineer",
-    // country: "Canada",
-    // country: "Hong Kong",
-    // country: "New Zealand",
-    // country: "Ireland",
-    // country: "Australia",
-    // country: "USA",
-    // country: "Singapore",
-    // country: "Denmark",
-    // country: "Germany",
-    // country: "United Kingdom",
-  }
+
 
   await page.goto('https://jobs.y-axis.com/software-jobs', { timeout: 800000 });
 
@@ -70,7 +78,9 @@ test('Open Y-axis for job apply', async ({ page }) => {
 
   await page.locator('//input[@name="search[q]" and @id="jobs-search-page-search-field"]').waitFor({ state: "visible", timeout: 300000 });
   await page.locator('//input[@name="search[q]" and @id="jobs-search-page-search-field"]').fill(datafor["job"])
-  // await page.locator('select#search_where_q').first().selectOption({ value: datafor["country"] })
+  if(datafor["country"]){
+    await page.locator('select#search_where_q').first().selectOption({ value: datafor["country"] })
+  }
   await page.waitForLoadState("domcontentloaded");
 
 
