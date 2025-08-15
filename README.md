@@ -118,7 +118,7 @@ This project is open source. The included code is released under the MIT License
 
 
 
-📬 Contact
+## 📬 Contact
 
 For questions, feedback, or collaboration, feel free to reach out:
 Name: Nithyanandhan V
