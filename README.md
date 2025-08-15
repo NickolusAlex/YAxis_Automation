@@ -114,4 +114,13 @@ npx playwright test
 ---
 
 ## 📄 License
-This project is licensed under the MIT License.
+This project is open source. The included code is released under the MIT License, while any third-party libraries used retain their respective original licenses.
+
+
+
+📬 Contact
+
+For questions, feedback, or collaboration, feel free to reach out:
+Name: Nithyanandhan V
+Email: nithyanandha.velliyangiri@gmail.com
+GitHub: [your-github-profile](https://github.com/NickolusAlex)
